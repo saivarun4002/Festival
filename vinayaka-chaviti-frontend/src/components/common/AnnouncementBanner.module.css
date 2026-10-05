@@ -1,0 +1,56 @@
+.banner {
+  background: var(--color-accent-soft, #fff3e0);
+  border-bottom: 1px solid var(--color-border, #eee);
+  padding: var(--space-1, 4px) var(--space-4);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--color-primary, #7A2A1D);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.badgeUrgent {
+  background: #d32f2f;
+}
+
+.message {
+  font-size: var(--font-size-xs, 0.8rem);
+  color: var(--color-text);
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-weight: 600;
+  margin-right: var(--space-2);
+}
+
+.viewAllLink {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs, 0.8rem);
+  font-weight: 600;
+  color: var(--color-primary, #7A2A1D);
+  text-decoration: underline;
+  white-space: nowrap;
+}

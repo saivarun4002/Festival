@@ -1,0 +1,50 @@
+/*
+ * Light/Dark theme overrides.
+ * tokens.css defines the default (light) values for all --color-* variables.
+ * This file overrides them when the <html> element carries data-theme="dark",
+ * which is toggled at runtime via the useTheme hook (src/hooks/useTheme.js).
+ */
+
+:root {
+  color-scheme: light;
+  --color-primary: #3B1F63;
+  --color-primary-dark: #241140;
+  --color-accent: #F2B705;
+  --color-bg: #FFF8EC;
+  --color-bg-elevated: #FFFFFF;
+  --color-text: #2B1A47;
+  --color-text-muted: #6B5E7A;
+  --color-border: #E7D9B9;
+  --color-success: #1A9E6B;
+  --color-danger: #D7263D;
+  --color-focus-ring: #F2B705;
+  --color-surface: #FFFFFF;
+  --color-accent-soft: #FFF3D0;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: #F2B705;
+  --color-primary-dark: #3B1F63;
+  --color-accent: #FFD93D;
+  --color-bg: #0E0B2E;
+  --color-bg-elevated: #1B1440;
+  --color-text: #FDF3E7;
+  --color-text-muted: #C9BFE0;
+  --color-border: #332A66;
+  --color-success: #4FD8A0;
+  --color-danger: #FF6B6B;
+  --color-focus-ring: #FFD93D;
+  --color-surface: #1B1440;
+  --color-accent-soft: #2E2350;
+}
+
+html,
+body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+* {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}

@@ -1,0 +1,184 @@
+.page {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-8, 4rem);
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 320px;
+  background: radial-gradient(ellipse at center, var(--color-accent) 0%, transparent 70%);
+  opacity: 0.12;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: var(--space-6);
+  animation: heroIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-xs, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.subheading {
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+}
+
+.countPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.02em;
+}
+
+.countDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent);
+  animation: dotPulse 1.8s ease-in-out infinite;
+}
+
+.status {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4, 1.25rem);
+}
+
+.card {
+  position: relative;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: var(--radius-lg, 14px);
+  padding: var(--space-5, 1.75rem) var(--space-3);
+  background: var(--color-bg-elevated, var(--color-surface, #fff));
+  text-align: center;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+.familyName {
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.representative {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.skeleton {
+  animation: shimmer 1.4s ease-in-out infinite, cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  min-height: 118px;
+  background: linear-gradient(
+    100deg,
+    var(--color-bg-elevated) 30%,
+    color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-elevated)) 50%,
+    var(--color-bg-elevated) 70%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 55%, transparent); }
+  50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent) 0%, transparent); }
+}

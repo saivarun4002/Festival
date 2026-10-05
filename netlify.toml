@@ -1,0 +1,18 @@
+# Netlify build configuration for the Vinayaka Chaviti / Diwali frontend (Vite + React SPA).
+# The backend (Spring Boot API + MySQL) must be hosted separately — Netlify only
+# serves static sites. Set VITE_API_BASE_URL in Netlify's environment variables
+# to point at your deployed backend's /api base URL.
+
+[build]
+  base = "vinayaka-chaviti-frontend"
+  command = "npm run build"
+  publish = "vinayaka-chaviti-frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Client-side routing (React Router) fallback: all paths serve index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

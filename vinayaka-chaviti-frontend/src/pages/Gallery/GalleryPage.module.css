@@ -1,0 +1,91 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.subheading {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.status {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-6);
+}
+
+.albumGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+
+.albumCard {
+  border: 1px solid var(--color-border, #eee);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  background: var(--color-surface, #fff);
+  cursor: pointer;
+  text-align: left;
+}
+
+.albumCover {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--color-border, #eee);
+  display: block;
+}
+
+.albumInfo {
+  padding: var(--space-3);
+}
+
+.albumTitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
+.backButton {
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--color-border, #ddd);
+  background: transparent;
+  cursor: pointer;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+
+.imageWrapper {
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  background: var(--color-border, #eee);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.caption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  padding: var(--space-2) 0;
+}

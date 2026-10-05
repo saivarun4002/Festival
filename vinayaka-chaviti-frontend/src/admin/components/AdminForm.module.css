@@ -1,0 +1,79 @@
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text, #231A16);
+}
+
+.required {
+  color: var(--color-danger, #FF4136);
+  margin-left: 2px;
+}
+
+.input,
+.textarea,
+.select {
+  border: 1.5px solid var(--color-border, #E7DED5);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-text, #231A16);
+  background: var(--color-bg-elevated, #fff);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--color-primary, #8A2D1E);
+  box-shadow: 0 0 0 4px rgba(138,45,30,0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxRow label {
+  font-size: 0.88rem;
+  color: var(--color-text, #231A16);
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.errorText {
+  color: var(--color-danger, #FF4136);
+  font-size: 0.78rem;
+}
+
+.formError {
+  background: #FBE1DE;
+  color: #B22A1C;
+  padding: 10px 14px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}

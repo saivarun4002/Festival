@@ -1,0 +1,373 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.subheading {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+
+.filterButton {
+  padding: var(--space-2) var(--space-3);
+  border-radius: 999px;
+  border: 1px solid var(--color-border, #ddd);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+}
+
+.filterButtonActive {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* ---------- Timeline layout (day-tabs + vertical schedule) ---------- */
+
+.timelineWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.dayNav {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-2) var(--space-3);
+  border-bottom: 2px solid var(--color-border, #eee);
+  scrollbar-width: thin;
+}
+
+.dayTab {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.dayTab:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.dayTabActive {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+.dayTabLabel {
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dayTabDate {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-text-muted);
+}
+
+.todayDot {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.dayPanel {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-6);
+  animation: fadeSlideIn 0.4s ease both;
+}
+
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: sticky;
+  top: var(--space-4);
+  align-self: start;
+  padding: var(--space-3) 0;
+}
+
+.dateBlockLabel {
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.dateBlockMonth {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.dateBlockDay {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.dateBlockWeekday {
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-left: var(--space-5);
+  border-left: 2px dashed var(--color-border, #e3d9c8);
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: var(--space-4);
+  animation: fadeSlideIn 0.45s ease both;
+}
+
+.timelineTime {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-right: var(--space-3);
+}
+
+.timeValue {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.timeMeridiem {
+  font-size: var(--font-size-xs, 0.75rem);
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.timeEnd {
+  margin-top: 2px;
+  font-size: var(--font-size-xs, 0.7rem);
+  color: var(--color-text-muted);
+}
+
+.timelineMarker {
+  position: absolute;
+  left: calc(-1 * var(--space-5) - 7px);
+  top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-bg);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.timelineItem:hover .timelineDot {
+  background: var(--color-accent);
+  transform: scale(1.2);
+}
+
+.timelineContent {
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: var(--radius-md, 10px);
+  padding: var(--space-4);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.timelineItem:hover .timelineContent {
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+}
+
+.timelineTitleRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.cardCategory {
+  display: inline-block;
+  font-size: var(--font-size-xs, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.cardMeta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.cardTitleDone {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.completedBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--font-size-xs, 0.7rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 155, 60, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(200, 155, 60, 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .dayPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .dateBlock {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-2);
+    position: static;
+  }
+
+  .dateBlockDay {
+    font-size: 2rem;
+  }
+
+  .timelineItem {
+    grid-template-columns: 70px 1fr;
+  }
+}
+
+.cardDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.status {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-6);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.pageButton {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--color-border, #ddd);
+  background: transparent;
+  cursor: pointer;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

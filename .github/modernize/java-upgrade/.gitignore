@@ -1,0 +1,83 @@
+ === Node / Frontend ===
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.env.*
+!.env.*.example
+
+ 
+
+# === Java / Backend (Maven) ===
+target/
+*.class
+*.jar
+!**/target/classes/db/migration/**
+
+ 
+
+# === Logs ===
+*.log
+run.log
+npm-debug.log*
+
+ 
+
+# === IDE / OS ===
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+ 
+
+# === Build artifacts ===
+*.war
+*.ear
+bin/
+
+ 
+
+Search for a blog
+SV
+Sai Varun Avadhuta
+0 Followers
+ · 
+Similar Blog Posts
+
+MA
+Mohasin Ahamed Chinnap...
+React-Scripts/Webpack to Vite Migration Guide
+
+
+13 min read
+NB
+Narayanaswamy Balasubr...
+Reusable Architecture in SAP BTP - 3
+
+
+21 min read
+SR
+Shikher Raina
+ES6 NOTES
+
+
+12 min read
+LS
+Lavanya S B
+Node.js interview questions
+
+
+10 min read
+RK
+Rohit Kumar
+HAZELCAST: AN IN-MEMORY DISTRIBUTED COMPUTING PLATFORM
+
+
+14 min read
+Powered by Infosys Wingspan
+© Infosys Ltd. 2019-2026.Terms & ConditionsHelp & Contact

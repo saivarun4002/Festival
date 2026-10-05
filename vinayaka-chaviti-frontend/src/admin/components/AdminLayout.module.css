@@ -1,0 +1,226 @@
+:root {
+  --admin-bg: var(--color-bg, #F2EFEA);
+  --admin-sidebar-bg: #1C2027;
+  --admin-sidebar-bg-elevated: #20242C;
+  --admin-sidebar-text: #B7BDC8;
+  --admin-sidebar-text-strong: #F4F3F1;
+  --admin-accent: #D9A441;
+  --admin-accent-soft: rgba(217,164,65,0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--color-primary, #8A2D1E) 8%, transparent), transparent 40%),
+    var(--admin-bg);
+}
+
+.sidebar {
+  width: 256px;
+  flex-shrink: 0;
+  background: var(--admin-sidebar-bg);
+  color: var(--admin-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.18);
+  z-index: 5;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.14);
+  border-radius: 10px;
+}
+
+.brand {
+  padding: 0 22px 20px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--admin-sidebar-text-strong);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.brandSub {
+  display: block;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--admin-accent);
+  margin-top: 5px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.sectionLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  padding: 18px 22px 7px;
+}
+
+.navIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 1px 10px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  color: var(--admin-sidebar-text);
+  text-decoration: none;
+  font-size: 0.89rem;
+  font-weight: 500;
+  position: relative;
+  outline: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+}
+
+.navLink:focus-visible {
+  box-shadow: 0 0 0 2px var(--admin-accent);
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--admin-sidebar-text-strong);
+  transform: translateX(2px);
+}
+
+.navLinkActive {
+  background: var(--admin-accent-soft);
+  color: var(--admin-sidebar-text-strong);
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 0 var(--admin-accent);
+}
+
+.navLinkActive .navIcon {
+  opacity: 1;
+  color: var(--admin-accent);
+}
+
+.navLinkActive:hover {
+  transform: none;
+}
+
+.footer {
+  padding: 18px 22px 4px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 14px;
+}
+
+.userRow {
+  font-size: 0.8rem;
+  color: #9aa1ad;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--admin-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1C2027;
+  font-weight: 800;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--admin-sidebar-text-strong);
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.logoutBtn:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+
+.viewSiteLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--admin-accent);
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.15s ease;
+}
+
+.viewSiteLink:hover {
+  opacity: 0.75;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 28px 32px 56px;
+  animation: pageFadeIn 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

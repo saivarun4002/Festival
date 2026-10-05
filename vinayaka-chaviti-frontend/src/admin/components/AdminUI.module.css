@@ -1,0 +1,247 @@
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: headerSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes headerSlideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.pageTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: var(--color-text, #231A16);
+  letter-spacing: -0.01em;
+}
+
+.pageSubtitle {
+  margin: 0;
+  color: var(--color-text-muted, #6B5E58);
+  font-size: 0.92rem;
+}
+
+.pageActions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+  will-change: transform;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btnPrimary {
+  background: #7A2A1D;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(122,42,29,0.3);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #8C3123;
+  box-shadow: 0 4px 14px rgba(122,42,29,0.3);
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background: var(--color-bg-elevated, #fff);
+  color: var(--color-text, #231A16);
+  border: 1px solid var(--color-border, #E7DED5);
+}
+
+.btnSecondary:hover:not(:disabled) {
+  border-color: #7A2A1D;
+  transform: translateY(-1px);
+}
+
+.btnDanger {
+  background: #C13A30;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(193,58,48,0.3);
+}
+
+.btnDanger:hover:not(:disabled) {
+  background: #D4443A;
+  box-shadow: 0 4px 14px rgba(193,58,48,0.3);
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--color-primary, #8A2D1E);
+  padding: 6px 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.badgeNeutral { background: #EAE7E2; color: #635950; }
+.badgeSuccess { background: #E1F0E3; color: #296B3E; }
+.badgeWarning { background: #FBEED4; color: #946A1A; }
+.badgeDanger { background: #F8E1DE; color: #A8362B; }
+.badgeInfo { background: #F3E6FA; color: #6B2FA0; }
+
+.card {
+  background: var(--color-bg-elevated, #fff);
+  border-radius: 14px;
+  border: 1px solid var(--color-border, #E7DED5);
+  box-shadow: 0 1px 3px rgba(35,26,22,0.05);
+  animation: cardFadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.emptyState {
+  padding: 56px 20px;
+  text-align: center;
+  color: var(--color-text-muted, #6B5E58);
+  font-size: 0.95rem;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--color-border, #E7DED5);
+  border-top-color: #7A2A1D;
+  border-radius: 50%;
+  margin: 48px auto;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,17,13,0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: overlayFadeIn 0.2s ease;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalPanel {
+  background: var(--color-bg-elevated, #fff);
+  width: 100%;
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  animation: modalPopIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes modalPopIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border, #E7DED5);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg-elevated, #fff);
+  z-index: 1;
+}
+
+.modalTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-text, #231A16);
+}
+
+.modalClose {
+  background: var(--color-bg, #F4F1EC);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted, #6B5E58);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.modalClose:hover {
+  background: #F8E1DE;
+  color: #A8362B;
+  transform: rotate(90deg);
+}
+
+.modalBody {
+  padding: 22px 24px 26px;
+}
+
+.confirmMessage {
+  margin: 0 0 18px;
+  color: var(--color-text, #231A16);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
